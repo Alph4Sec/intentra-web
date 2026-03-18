@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>INTENTRA</title>
+  <meta name="description" content="The most common ways crypto wallets get drained — and exactly how Intentra stops each one." />
+  <meta name="author" content="INTENTRA" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.intentrasecurity.com/threats.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+
+  <!-- Shared design system from landing -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── threats.html page-specific styles ── */
+
+    .threats-hero {
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+      text-align: center;
+      position: relative;
+    }
+    .threats-hero::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% -10%, rgba(255,61,107,0.08) 0%, transparent 60%);
+    }
+
+    .threats-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: var(--deny); letter-spacing: 0.12em; text-transform: uppercase;
+      background: rgba(255,61,107,0.08); border: 1px solid rgba(255,61,107,0.18);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 2rem;
+    }
+
+    .threats-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .threats-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--deny) 0%, #ff8c42 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .threats-hero-sub {
+      font-size: 1.05rem; color: var(--text-muted);
+      max-width: 540px; margin: 0 auto 3rem; line-height: 1.75;
+    }
+
+    .threats-stats {
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+    }
+    .threats-stat { text-align: center; }
+    .threats-stat-num {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+      color: var(--deny); display: block; line-height: 1;
+    }
+    .threats-stat-label {
+      font-size: 0.72rem; color: var(--text-muted);
+      font-family: var(--font-mono); margin-top: 6px; display: block;
+      letter-spacing: 0.05em;
+    }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex; justify-content: center; gap: 0.75rem;
+      flex-wrap: wrap; padding: 2.5rem 0 0;
+    }
+    .filter-btn {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      padding: 7px 16px; border-radius: 100px;
+      border: 1px solid var(--border); color: var(--text-muted);
+      background: none; cursor: pointer;
+      transition: all 0.2s; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .filter-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+    .filter-btn.active {
+      background: rgba(255,61,107,0.08); border-color: rgba(255,61,107,0.28);
+      color: var(--deny);
+    }
+
+    /* Vectors section */
+    .vectors-section {
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 8vw, 7rem);
+    }
+    .vectors-list {
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+
+    /* Vector card */
+    .v-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: border-color 0.3s var(--ease), transform 0.25s var(--ease),
+                  opacity 0.45s var(--ease);
+      opacity: 0; transform: translateY(14px);
+    }
+    .v-card.visible { opacity: 1; transform: translateY(0); }
+    .v-card.hidden { display: none; }
+    .v-card:hover:not(.is-open) { border-color: rgba(255,61,107,0.18); }
+    .v-card.is-open { border-color: rgba(255,61,107,0.3); }
+
+    .v-header {
+      display: grid;
+      grid-template-columns: 2rem 1fr auto auto auto;
+      align-items: center; gap: 1.25rem;
+      padding: 1.5rem 1.75rem;
+      cursor: pointer; user-select: none;
+    }
+
+    .v-index {
+      font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600;
+      color: var(--text-dim); text-align: center;
+    }
+
+    .v-title {
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 0.2rem; line-height: 1.2;
+    }
+    .v-subtitle {
+      font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);
+    }
+
+    .v-severity {
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+    }
+    .sev-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .sev-dot.critical {
+      background: var(--deny); box-shadow: 0 0 6px var(--deny);
+      animation: sev-pulse 2s ease-in-out infinite;
+    }
+    .sev-dot.high {
+      background: var(--review); box-shadow: 0 0 6px var(--review);
+      animation: sev-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes sev-pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+    .sev-label {
+      font-family: var(--font-mono); font-size: 0.56rem;
+      color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .v-outcome {
+      display: flex; align-items: center; gap: 5px;
+      font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600;
+      padding: 5px 10px; border-radius: var(--r-sm); flex-shrink: 0;
+      letter-spacing: 0.05em; white-space: nowrap;
+    }
+    .v-outcome.deny {
+      background: rgba(255,61,107,0.1); color: var(--deny);
+      border: 1px solid rgba(255,61,107,0.18);
+    }
+    .v-outcome.review {
+      background: rgba(255,184,0,0.1); color: var(--review);
+      border: 1px solid rgba(255,184,0,0.18);
+    }
+
+    .v-chevron {
+      color: var(--text-dim); font-size: 0.85rem; flex-shrink: 0;
+      transition: transform 0.3s var(--ease), color 0.2s;
+    }
+    .v-card.is-open .v-chevron { transform: rotate(180deg); color: var(--deny); }
+
+    /* Card body */
+    .v-body { display: none; border-top: 1px solid var(--border); }
+    .v-card.is-open .v-body { display: block; }
+
+    .v-body-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+
+    .v-section {
+      padding: 1.75rem;
+      border-right: 1px solid var(--border);
+    }
+    .v-section:last-child { border-right: none; }
+
+    .v-section-label {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;
+    }
+    .v-section-label::before {
+      content: ''; display: block; width: 12px; height: 1px; background: var(--text-dim);
+    }
+
+    .v-section p {
+      font-size: 0.875rem; color: var(--text-muted); line-height: 1.75;
+    }
+    .v-section p + p { margin-top: 0.75rem; }
+
+    /* Attack steps */
+    .attack-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; }
+    .attack-step { display: flex; gap: 0.875rem; align-items: flex-start; }
+    .step-n {
+      font-family: var(--font-mono); font-size: 0.58rem; font-weight: 600;
+      color: var(--deny); background: rgba(255,61,107,0.08);
+      border: 1px solid rgba(255,61,107,0.16);
+      width: 20px; height: 20px; border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-t { font-size: 0.84rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Loss callout */
+    .loss-callout {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+      background: rgba(255,61,107,0.05); border: 1px solid rgba(255,61,107,0.12);
+      border-radius: var(--r-md); padding: 0.875rem 1rem; margin-top: 1.25rem;
+    }
+    .loss-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+    .loss-text { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
+    .loss-text strong { color: var(--deny); }
+
+    /* Coverage */
+    .v-coverage {
+      padding: 1.25rem 1.75rem;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(0,214,143,0.025) 0%, transparent 50%);
+    }
+    .coverage-row {
+      display: flex; align-items: center; gap: 0.875rem;
+      flex-wrap: wrap; margin-bottom: 0.75rem;
+    }
+    .coverage-badge {
+      display: flex; align-items: center; gap: 5px;
+      font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600;
+      padding: 4px 10px; border-radius: var(--r-sm); letter-spacing: 0.05em;
+    }
+    .coverage-badge.blocked {
+      background: rgba(0,214,143,0.1); color: var(--allow);
+      border: 1px solid rgba(0,214,143,0.18);
+    }
+    .coverage-badge.reviewed {
+      background: rgba(255,184,0,0.1); color: var(--review);
+      border: 1px solid rgba(255,184,0,0.18);
+    }
+    .coverage-badge::before { content: '✓'; font-size: 0.6rem; }
+    .coverage-mode {
+      font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim);
+    }
+    .coverage-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* CTA */
+    .threats-cta {
+      text-align: center;
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .threats-cta::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,240,255,0.04) 0%, transparent 60%);
+    }
+    .threats-cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; line-height: 1.1;
+    }
+    .threats-cta p {
+      color: var(--text-muted); max-width: 460px;
+      margin: 0 auto 2.5rem; line-height: 1.7; font-size: 1rem;
+    }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Active nav link */
+    .nav-links a.is-active { color: var(--text); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .v-body-grid { grid-template-columns: 1fr; }
+      .v-section { border-right: none; border-bottom: 1px solid var(--border); }
+      .v-section:last-child { border-bottom: none; }
+    }
+    @media (max-width: 640px) {
+      .v-header { grid-template-columns: auto 1fr auto auto; gap: 0.875rem; padding: 1.25rem; }
+      .v-severity { display: none; }
+    }
+
+    /* Stat Popups */
+    .stat-clickable {
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .stat-clickable:hover {
+      opacity: 0.8;
+    }
+    .tstat-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 199;
+    }
+    .tstat-overlay.is-open {
+      display: block;
+    }
+    .tstat-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 200;
+      width: 360px;
+      max-width: calc(100vw - 2rem);
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 214, 143, 0.25);
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+      padding: 1.5rem;
+    }
+    .tstat-popup.is-open {
+      display: block;
+    }
+    .tstat-popup-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+      padding-right: 1.5rem;
+    }
+    .tstat-popup-metric {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--cyan);
+      line-height: 1;
+    }
+    .tstat-popup-metric-label {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      opacity: 0.5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .tstat-popup-body {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+    .tstat-popup-note {
+      background: rgba(251, 191, 36, 0.08);
+      border-left: 2px solid rgba(251, 191, 36, 0.5);
+      border-radius: 4px;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .tstat-popup-sources {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.75rem;
+    }
+    .tstat-popup-sources-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .tstat-popup-source {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--cyan);
+      opacity: 0.7;
+      text-decoration: none;
+    }
+    .tstat-popup-source:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .tstat-popup-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      color: inherit;
+      opacity: 0.4;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 0.25rem;
+    }
+    .tstat-popup-close:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- NAV — exact same structure as landing -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="INTENTRA home">
+        <svg width="22" height="27" viewBox="0 0 100 121" fill="#00f0ff" aria-hidden="true">
+          <rect x="42.89" y="0"     width="14.22" height="121"/>
+          <rect x="0"     y="37.14" width="57.11" height="14.01"/>
+          <rect x="64.1"  y="37.14" width="35.9"  height="14.01"/>
+          <rect x="0"     y="69.38" width="35.9"  height="14.24"/>
+          <rect x="42.89" y="69.38" width="57.11" height="14.24"/>
+        </svg>
+        <span>INTENTRA</span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#protection-levels">Protection Levels</a>
+        <a href="index.html#comparison">The Enforcement Difference</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="threats.html" class="is-active nav-link--highlight">Threats</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#install" class="btn-nav">Install Free</a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="threats-hero">
+        <div class="threats-eyebrow">⚠ Threat Intelligence</div>
+        <h1>The attacks that <em>drain wallets.</em><br/>How Intentra stops them.</h1>
+        <p class="threats-hero-sub">Plain-language breakdowns of the real techniques attackers use — and exactly what happens when Intentra is active.</p>
+        <div class="threats-stats" style="position:relative">
+          <div class="threats-stat stat-clickable" id="tstat-stolen">
+            <span class="threats-stat-num">$494M</span>
+            <span class="threats-stat-label">Stolen via EVM phishing (2024) ↗</span>
+          </div>
+          <div class="threats-stat stat-clickable" id="tstat-permit">
+            <span class="threats-stat-num">56.7%</span>
+            <span class="threats-stat-label">Via Permit signatures ↗</span>
+          </div>
+          <div class="threats-stat">
+            <span class="threats-stat-num">10</span>
+            <span class="threats-stat-label">Vectors covered by Intentra</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All vectors</button>
+        <button class="filter-btn" data-filter="deny">Auto-blocked</button>
+        <button class="filter-btn" data-filter="review">Flagged for review</button>
+      </div>
+
+      <!-- VECTORS -->
+      <section class="vectors-section" aria-label="Attack vectors">
+        <div class="vectors-list" id="vectorsList">
+
+          <!-- 01 -->
+          <article class="v-card" data-outcome="deny">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">01</span>
+              <div>
+                <div class="v-title">Unlimited Token Approval</div>
+                <div class="v-subtitle">approve(spender, MAX_UINT256)</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot critical"></div><span class="sev-label">Critical</span></div>
+              <div class="v-outcome deny">⊘ AUTO-BLOCK</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>When you use a DeFi app for the first time, it asks you to "approve" it to spend your tokens. Legitimate apps request exactly what they need.</p>
+                  <p>Drainer apps request the <strong>maximum possible amount</strong> — every token you'll ever have, forever. Once approved, the attacker can drain your wallet anytime, even while you sleep.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Fake DeFi app asks you to approve tokens to "start using" the platform.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">Approval is for MAX_UINT256 — the largest number possible in Ethereum.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Attacker calls transferFrom() on your wallet at any future time, draining everything.</span></div>
+                  </div>
+                  <div class="loss-callout">
+                    <span class="loss-icon">💸</span>
+                    <div class="loss-text"><strong>Real impact:</strong> Permit and approval drains accounted for 56.7% of all EVM phishing losses in 2024 — $494M total. Once approved, no further action is needed from the victim.</div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Intentra inspects every approval transaction before it reaches your wallet. If the amount equals MAX_UINT256 (or any equivalent maximum), it flags it as <span class="font-mono" style="color:var(--deny);font-size:0.78rem">UNLIMITED_APPROVAL</span>.</p>
+                  <p>This is a hard rule — it cannot be bypassed by changing security mode. No configuration disables it.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge blocked">Blocked automatically</div>
+                  <div class="coverage-mode font-mono">All modes → DENY · No override possible</div>
+                </div>
+                <p class="coverage-desc">The transaction is rejected before your wallet even sees it. No popup to accidentally approve. The attacker never gets the permission they need.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 -->
+          <article class="v-card" data-outcome="deny">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">02</span>
+              <div>
+                <div class="v-title">Permit Signature Phishing</div>
+                <div class="v-subtitle">EIP-2612 · off-chain approval</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot critical"></div><span class="sev-label">Critical</span></div>
+              <div class="v-outcome deny">⊘ AUTO-BLOCK</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>A newer, more dangerous version of the approval attack. Instead of a transaction, the site asks you to "sign a message" — which feels harmless, like logging in.</p>
+                  <p>That signature is a <strong>Permit</strong>: a cryptographically valid authorization that lets the attacker drain your tokens with no further action from you. No gas. No second confirmation.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Site shows a "sign to continue" prompt. Looks like a standard login.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">The signature is actually a Permit for unlimited tokens, valid for 30 days.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Attacker submits the signature to the blockchain. No second interaction needed from you.</span></div>
+                  </div>
+                  <div class="loss-callout">
+                    <span class="loss-icon">💸</span>
+                    <div class="loss-text"><strong>Real impact:</strong> Permit-type signatures were the #1 drain method in both 2024 (56.7% of EVM losses) and 2025. The largest single Permit drain of 2025 took $6.5M in a single transaction.</div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Intentra intercepts signature requests, not just transactions. When a site requests a typed signature (eth_signTypedData), Intentra decodes the hidden contents and checks for Permit structures.</p>
+                  <p>If the permit value is MAX_UINT256 or the expiry deadline is excessively long, the request is blocked before you can sign.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge blocked">Blocked automatically</div>
+                  <div class="coverage-mode font-mono">Unlimited value → DENY · Excessive TTL → REVIEW</div>
+                </div>
+                <p class="coverage-desc">Intentra reads the hidden contents of the signature request and rejects it before it reaches your wallet screen. The attacker never gets a valid signature.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 -->
+          <article class="v-card" data-outcome="deny">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">03</span>
+              <div>
+                <div class="v-title">Velocity / Drain Script Attack</div>
+                <div class="v-subtitle">automated rapid-fire transactions</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot critical"></div><span class="sev-label">Critical</span></div>
+              <div class="v-outcome deny">⊘ AUTO-BLOCK</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>Once a malicious site has partial wallet access, an automated script fires multiple transactions in rapid succession — trying to move assets before you can react.</p>
+                  <p>The speed is intentional: human reaction time is ~500ms. Scripts operate in milliseconds. By the time you see anything happen, it may be over.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Malicious site gains partial wallet interaction.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">Script fires 10+ transactions per minute, each moving a portion of your assets.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Wallet is empty before you can process what's happening.</span></div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Intentra tracks transactions per minute in real time. When the rate exceeds your configured threshold (default: 5 TX/min), it automatically activates the emergency kill switch.</p>
+                  <p>The kill switch blocks all further transactions until you manually reset it. The UI turns orange to alert you immediately. This is the very first check Intentra runs — before any other rule.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge blocked">Auto-blocked + kill switch</div>
+                  <div class="coverage-mode font-mono">All modes → DENY · Session locked until manual reset</div>
+                </div>
+                <p class="coverage-desc">Velocity protection is the first check Intentra runs on every transaction. No drain script can get past this without first disabling Intentra entirely.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 -->
+          <article class="v-card" data-outcome="review">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">04</span>
+              <div>
+                <div class="v-title">Proxy Upgrade Attack</div>
+                <div class="v-subtitle">delegatecall · upgradeable contract</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot critical"></div><span class="sev-label">Critical</span></div>
+              <div class="v-outcome review">△ REVIEW</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>Many DeFi protocols use upgradeable proxy contracts — the address you approve stays the same, but the underlying logic can be silently replaced. You approved a safe contract. The attacker upgrades it to malicious code. Your existing approval now grants access to logic you never reviewed — and never had a chance to reject.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">You approve a token spend to a legitimate-looking upgradeable proxy contract.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">The contract owner (or an attacker who compromised the owner key) upgrades the implementation to malicious logic.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">The new implementation uses your existing approval to drain your wallet — no second interaction needed from you.</span></div>
+                  </div>
+                  <div class="loss-callout">
+                    <span class="loss-icon">💸</span>
+                    <div class="loss-text"><strong>Real impact:</strong> Multiple DeFi protocols have suffered governance or key compromise attacks enabling malicious upgrades — including Tornado Cash (2023) and several Compound forks. Existing approvals became instant drain vectors with no further action needed from victims.</div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Intentra checks every contract interaction against known proxy patterns. When the destination address contains a delegatecall structure or matches known upgradeable proxy signatures (EIP-1967, EIP-897), the transaction is flagged for review before it reaches your wallet.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge reviewed">Flagged for review</div>
+                  <div class="coverage-mode font-mono">Balanced + Paranoid → REVIEW · Permissive → allowed</div>
+                </div>
+                <p class="coverage-desc">Intentra surfaces the proxy structure before you sign, giving you the context to decide — not just a silent pass-through.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 -->
+          <article class="v-card" data-outcome="review">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">05</span>
+              <div>
+                <div class="v-title">High-Value ETH Transfer</div>
+                <div class="v-subtitle">fat finger · urgency traps · social engineering</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot high"></div><span class="sev-label">High</span></div>
+              <div class="v-outcome review">⚑ REVIEW</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>Attackers create artificial urgency — "claim your airdrop in 60 seconds," "your position is being liquidated" — to make you send large ETH amounts without reading carefully.</p>
+                  <p>This also covers honest mistakes: mistyping an amount, approving the wrong field, or clicking confirm while distracted.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Site creates urgency: countdown timer, fake liquidation warning, exclusive offer.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">You confirm quickly without checking the exact ETH amount.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Transaction sends 2–10x more ETH than intended to an attacker address.</span></div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Any native ETH transfer above your configured threshold (default: 0.5 ETH) triggers the overlay with a clear breakdown: destination address, exact amount, and a warning that this exceeds your limit.</p>
+                  <p>The overlay interrupts the urgency — giving you the seconds needed to actually read what you're signing.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge reviewed">Flagged for review</div>
+                  <div class="coverage-mode font-mono">Balanced + Paranoid → REVIEW · You make the final call</div>
+                </div>
+                <p class="coverage-desc">Intentra doesn't block the transfer — you might legitimately be sending a large amount. Instead, it forces a deliberate pause and shows you exactly what you're about to sign.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 -->
+          <article class="v-card" data-outcome="deny">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">06</span>
+              <div>
+                <div class="v-title">Daily Spending Cap Breach</div>
+                <div class="v-subtitle">accumulated daily ETH limit enforcement</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot high"></div><span class="sev-label">High</span></div>
+              <div class="v-outcome deny">⊘ AUTO-BLOCK</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>Multiple small transactions that individually look harmless can add up to significant losses in a single session. Attackers exploit this by spacing transactions just far enough apart to avoid velocity detection.</p>
+                  <p>Without a daily cap, a session starting with a legitimate 0.5 ETH swap could end with 8 ETH moved to attacker addresses across 6 separate transactions.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Legitimate transaction goes through. Intentra allows it.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">Attacker triggers additional transactions spaced 2+ minutes apart.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Each amount looks reasonable. The daily total does not.</span></div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Intentra tracks the total ETH moved since midnight. When a new transaction would push that total above your configured daily hard cap (default: 10 ETH), it is denied automatically.</p>
+                  <p>Even if you approve each individual transaction, the daily cap cannot be exceeded without manually adjusting your settings.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge blocked">Blocked automatically</div>
+                  <div class="coverage-mode font-mono">All modes → DENY when cap exceeded · Configurable</div>
+                </div>
+                <p class="coverage-desc">The daily hard cap is your circuit breaker. No matter how many individual transactions you approve, your total daily exposure is capped at the limit you set.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 -->
+          <article class="v-card" data-outcome="review">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">07</span>
+              <div>
+                <div class="v-title">First-Time Contract Interaction</div>
+                <div class="v-subtitle">unverified contract · first-use warning</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot high"></div><span class="sev-label">High</span></div>
+              <div class="v-outcome review">⚑ REVIEW</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>Most crypto losses happen on the first interaction with a contract. The user has no history with it — and attackers know this is the moment of maximum vulnerability.</p>
+                  <p>Phishing sites, rug pulls, and fake token claims all rely on getting you to sign one transaction with a contract you've never touched before.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">You visit a new DeFi site, NFT mint, or "claim" page.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">Site asks you to interact with a contract you've never used.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Without checking, you approve — and the contract drains your wallet.</span></div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Intentra maintains a history of every contract you've successfully interacted with. Any contract not in your history and not on the trusted seed whitelist triggers an overlay showing the address and a first-use warning.</p>
+                  <p>Once you interact with a contract safely, it joins your trusted list — future interactions pass without friction.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge reviewed">Flagged for review</div>
+                  <div class="coverage-mode font-mono">Balanced → REVIEW on first use · Paranoid → REVIEW always</div>
+                </div>
+                <p class="coverage-desc">Every first-time contract interaction gets a moment of deliberate review. You see the exact address, can verify it, and decide whether to proceed.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08 -->
+          <article class="v-card" data-outcome="review">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">08</span>
+              <div>
+                <div class="v-title">High-Value Call to Unknown Contract</div>
+                <div class="v-subtitle">large ETH + unverified destination</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot critical"></div><span class="sev-label">Critical</span></div>
+              <div class="v-outcome review">⚑ REVIEW</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>The most dangerous combination: a large ETH amount sent to a contract you've never interacted with. This is the signature of fake investment platforms, bridge scams, and "guaranteed yield" traps.</p>
+                  <p>Legitimate protocols rarely ask for significant ETH on your first interaction. Scams almost always do.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Fake yield platform promises 30% APY. "Deposit at least 1 ETH to activate."</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">You've never interacted with this contract before.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Transaction sends ETH directly to attacker wallet. There is no yield platform.</span></div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>When both conditions are true — ETH value above your contract call threshold AND the destination is not in your trusted list — Intentra flags it as <span class="font-mono" style="color:var(--review);font-size:0.78rem">HIGH_VALUE_CONTRACT_CALL</span>.</p>
+                  <p>The overlay shows the exact ETH amount, the unknown contract address, and a clear warning about the combination of risk factors present.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge reviewed">Flagged for review</div>
+                  <div class="coverage-mode font-mono">Balanced + Paranoid → REVIEW · Threshold: 0.5 ETH</div>
+                </div>
+                <p class="coverage-desc">You might have a legitimate reason to send ETH to a new contract. Intentra doesn't assume otherwise — it just makes sure you're deciding consciously, not by accident.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09 -->
+          <article class="v-card" data-outcome="review">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">09</span>
+              <div>
+                <div class="v-title">Any Contract Call (Paranoid Mode)</div>
+                <div class="v-subtitle">zero silent contract interactions</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot high"></div><span class="sev-label">High</span></div>
+              <div class="v-outcome review">⚑ REVIEW</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>For users managing significant holdings, even trusted contracts can be compromised. A protocol you've used 50 times safely might have its contract upgraded to a malicious version overnight.</p>
+                  <p>In high-stakes situations, every transaction deserves a deliberate human review — regardless of history.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">You've used a protocol 20 times. It's in your trusted history.</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">The protocol's contract was upgraded to a malicious implementation overnight.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Balanced mode lets it pass as trusted. Paranoid mode flags it for review.</span></div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>In Paranoid mode, CONTRACT_CALL_PARANOID is added to every single contract interaction — known or unknown, high or low value. No interaction passes silently.</p>
+                  <p>Every transaction gets the overlay. You confirm every action deliberately. Nothing moves without your eyes on it.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge reviewed">Flagged for review</div>
+                  <div class="coverage-mode font-mono">Paranoid mode → REVIEW on every contract call, no exceptions</div>
+                </div>
+                <p class="coverage-desc">Paranoid mode trades convenience for maximum control. Every contract interaction gets your explicit approval — no exceptions, no history bypass.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="v-card" data-outcome="review">
+            <div class="v-header" tabindex="0" role="button" aria-expanded="false">
+              <span class="v-index font-mono">10</span>
+              <div>
+                <div class="v-title">EIP-7702 Delegation Drain</div>
+                <div class="v-subtitle">wallet delegated to malicious contract</div>
+              </div>
+              <div class="v-severity"><div class="sev-dot critical"></div><span class="sev-label">Critical</span></div>
+              <div class="v-outcome review">△ REVIEW</div>
+              <span class="v-chevron" aria-hidden="true">▾</span>
+            </div>
+            <div class="v-body">
+              <div class="v-body-grid">
+                <div class="v-section">
+                  <div class="v-section-label">What it is</div>
+                  <p>A newer Ethereum feature (EIP-7702) allows wallets to delegate their behavior to a smart contract. This enables powerful features — but also a dangerous new attack vector.</p>
+                  <p>An attacker tricks you into delegating your wallet to a malicious contract. Once delegated, every transaction you make passes through attacker-controlled logic that can redirect funds without your knowledge.</p>
+                  <div class="attack-steps">
+                    <div class="attack-step"><span class="step-n">1</span><span class="step-t">Phishing site gets you to sign a delegation. Looks like a normal "connect wallet."</span></div>
+                    <div class="attack-step"><span class="step-n">2</span><span class="step-t">Your wallet is now delegated to a malicious contract — 0xef0100 prefix appears in your bytecode.</span></div>
+                    <div class="attack-step"><span class="step-n">3</span><span class="step-t">Every future transaction passes through attacker logic that silently redirects funds.</span></div>
+                  </div>
+                  <div class="loss-callout">
+                    <span class="loss-icon">⚠️</span>
+                    <div class="loss-text"><strong>Emerging threat:</strong> EIP-7702 activated on Ethereum mainnet with the Pectra upgrade in May 2025. Drain exploits using this vector are actively being developed and deployed in the wild.</div>
+                  </div>
+                </div>
+                <div class="v-section">
+                  <div class="v-section-label">How Intentra detects it</div>
+                  <p>Before every native ETH transfer, Intentra checks the destination address's bytecode via eth_getCode. If it starts with 0xef0100 — the EIP-7702 delegation prefix — the transaction is flagged immediately and routed to mandatory review before you can sign.</p>
+                  <p>Full SET_CODE transaction interception — blocking the delegation at the moment it's created — is in active development for V2.</p>
+                </div>
+              </div>
+              <div class="v-coverage">
+                <div class="coverage-row">
+                  <div class="coverage-badge reviewed">Flagged for review</div>
+                  <div class="coverage-mode font-mono">Delegated account detected → REVIEW</div>
+                </div>
+                <p class="coverage-desc">Intentra is one of the few wallet protection tools with active EIP-7702 detection. This attack vector is new and growing — coverage is built in from day one.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="threats-cta">
+        <h2>Protection that runs<br/>before you can make a mistake.</h2>
+        <p>Intentra sits between every transaction and your wallet — invisible when everything is fine, active when it matters.</p>
+        <div class="cta-row">
+          <a href="index.html#install" class="btn-primary btn-primary--large">⬇ Install Free Extension</a>
+          <a href="index.html" class="btn-ghost">← Back to Overview</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER — exact same as landing -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo" aria-label="INTENTRA home">
+          <svg width="20" height="24" viewBox="0 0 100 121" fill="#00f0ff" aria-hidden="true">
+            <rect x="42.89" y="0"     width="14.22" height="121"/>
+            <rect x="0"     y="37.14" width="57.11" height="14.01"/>
+            <rect x="64.1"  y="37.14" width="35.9"  height="14.01"/>
+            <rect x="0"     y="69.38" width="35.9"  height="14.24"/>
+            <rect x="42.89" y="69.38" width="57.11" height="14.24"/>
+          </svg>
+          <span>INTENTRA</span>
+        </a>
+        <p class="footer-tagline font-mono">Zero-Trust Transaction Firewall for Web3</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="threats.html">Threats covered</a>
+        <a href="index.html#comparison">Comparison</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#install">Install</a>
+      </nav>
+
+      <div class="footer-bottom">
+        <span class="font-mono footer-copy">© 2026 INTENTRA. All rights reserved.</span>
+        <span class="font-mono footer-build">Built with zero trust.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="threats.js"></script>
+
+  <!-- Stat Popups -->
+  <div class="tstat-overlay" id="tstat-overlay"></div>
+  <div id="tpopup-stolen" class="tstat-popup">
+    <button class="tstat-popup-close" aria-label="Close">×</button>
+    <div class="tstat-popup-title">$494M Stolen via EVM Phishing in 2024</div>
+    <div class="tstat-popup-metric">$494M</div>
+    <div class="tstat-popup-metric-label">Lost on EVM chains</div>
+    <div class="tstat-popup-body">
+      Scam Sniffer tracked $494M stolen via wallet drainer phishing across EVM-compatible
+      chains in 2024 — a 67% increase over 2023. Over 332,000 wallet addresses were affected.
+      85.3% of large-case losses occurred on Ethereum Mainnet.<br/><br/>
+      This figure covers phishing-based wallet drains only — not exchange hacks or protocol exploits.
+      Both stats on this page come from EVM-only data, matching Intentra's coverage scope.
+    </div>
+    <div class="tstat-popup-sources">
+      <div class="tstat-popup-sources-label">Sources</div>
+      <a class="tstat-popup-source" href="https://drops.scamsniffer.io/scam-sniffer-2024-web3-phishing-attacks-wallet-drainers-drain-494-million/" target="_blank" rel="noopener">
+        → Scam Sniffer Crypto Phishing Report 2024
+      </a>
+      <a class="tstat-popup-source" href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank" rel="noopener">
+        → Scam Sniffer 2025 Annual Report
+      </a>
+    </div>
+  </div>
+
+  <div id="tpopup-permit" class="tstat-popup">
+    <button class="tstat-popup-close" aria-label="Close">×</button>
+    <div class="tstat-popup-title">Permit Signatures — #1 Drain Vector, 2 Years Running</div>
+    <div class="tstat-popup-metric">56.7%</div>
+    <div class="tstat-popup-metric-label">2024 drains via Permit (EVM)</div>
+    <div class="tstat-popup-body">
+      In 2024, 56.7% of all EVM wallet drains used a Permit-type signature (EIP-2612 / EIP-712),
+      which authorizes token spending without an on-chain approve() transaction.<br/><br/>
+      In 2025, Permit and Permit2 remained the dominant vector, accounting for 38% of
+      losses in cases exceeding $1M. The largest single theft of 2025 ($6.5M, September)
+      was executed via Permit signature.<br/><br/>
+      Intentra intercepts and decodes Permit signatures before the signing prompt,
+      evaluating them against your active policy before the request reaches your wallet.
+    </div>
+    <div class="tstat-popup-note">
+      Emerging vector: EIP-7702 malicious signatures appeared after Ethereum's Pectra upgrade (2025).
+      Intentra V2 roadmap includes EIP-7702 SET_CODE transaction interception.
+    </div>
+    <div class="tstat-popup-sources">
+      <div class="tstat-popup-sources-label">Sources</div>
+      <a class="tstat-popup-source" href="https://drops.scamsniffer.io/scam-sniffer-2024-web3-phishing-attacks-wallet-drainers-drain-494-million/" target="_blank" rel="noopener">
+        → Scam Sniffer Crypto Phishing Report 2024
+      </a>
+      <a class="tstat-popup-source" href="https://drops.scamsniffer.io/scam-sniffer-2025-crypto-phishing-losses-fall-83-to-84-million/" target="_blank" rel="noopener">
+        → Scam Sniffer 2025 Annual Report
+      </a>
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ═══════════════════════════════════════════
+       PRIMARY SEO
+  ═══════════════════════════════════════════ -->
+  <title>INTENTRA</title>
+  <meta name="description" content="INTENTRA intercepts, simulates and enforces policy on every blockchain transaction before your wallet signs. Pre-execution enforcement for Web3. Free Chrome extension." />
+  <meta name="keywords" content="web3 security, transaction firewall, zero trust blockchain, chrome extension, defi security, wallet protection, intent-based governance, ethereum security" />
+  <meta name="author" content="INTENTRA" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.intentrasecurity.com/" />
+
+  <!-- ═══════════════════════════════════════════
+       OPEN GRAPH
+  ═══════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.intentrasecurity.com/" />
+  <meta property="og:title" content="INTENTRA — Zero-Trust Transaction Firewall for Web3" />
+  <meta property="og:description" content="Every blockchain transaction intercepted, simulated and enforced before your wallet signs. Zero-trust security for Web3." />
+  <meta property="og:image" content="https://www.intentrasecurity.com/og-image.png" />
+  <meta property="og:site_name" content="INTENTRA" />
+
+  <!-- ═══════════════════════════════════════════
+       TWITTER CARD
+  ═══════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="INTENTRA — Zero-Trust Transaction Firewall for Web3" />
+  <meta name="twitter:description" content="Pre-execution enforcement for Web3. Intercept. Simulate. Enforce." />
+  <meta name="twitter:image" content="https://www.intentrasecurity.com/og-image.png" />
+
+  <!-- ═══════════════════════════════════════════
+       STRUCTURED DATA — SoftwareApplication
+  ═══════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "INTENTRA",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Chrome",
+    "description": "Zero-Trust Transaction Firewall for Web3. Intercepts, simulates and enforces policy on blockchain transactions before wallet signing.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "EIP-1193 Provider Interception",
+      "Pre-execution transaction simulation",
+      "Configurable policy engine",
+      "Unlimited approval blocking",
+      "EIP-712 signature decoding",
+      "Proxy contract detection",
+      "Velocity kill switch"
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════
+       PERFORMANCE
+  ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+  <!-- ═══════════════════════════════════════════
+       FONTS — Syne (display) + JetBrains Mono (code)
+  ═══════════════════════════════════════════ -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NOISE TEXTURE OVERLAY
+  ═══════════════════════════════════════════ -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="INTENTRA home">
+        <svg width="22" height="27" viewBox="0 0 100 121" fill="#00f0ff" aria-hidden="true">
+          <!-- Vertical arm: full height -->
+          <rect x="42.89" y="0"     width="14.22" height="121"/>
+          <!-- H arm 1 left segment -->
+          <rect x="0"     y="37.14" width="57.11" height="14.01"/>
+          <!-- H arm 1 right segment (gap opposite to H arm 2) -->
+          <rect x="64.1"  y="37.14" width="35.9"  height="14.01"/>
+          <!-- H arm 2 left segment (gap opposite to H arm 1) -->
+          <rect x="0"     y="69.38" width="35.9"  height="14.24"/>
+          <!-- H arm 2 right segment -->
+          <rect x="42.89" y="69.38" width="57.11" height="14.24"/>
+        </svg>
+        <span>INTENTRA</span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#how-it-works" data-i18n="nav_how">How It Works</a>
+        <a href="#protection-levels" data-i18n="nav_prot">Protection Levels</a>
+        <a href="#comparison" data-i18n="nav_compare">The Enforcement Difference</a>
+        <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="threats.html" data-i18n="nav_threats" class="nav-link--highlight">Threats</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">EN / ES</button>
+        <a href="#install" class="btn-nav" data-i18n="nav_cta">Install Free</a>
+      </div>
+
+      <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+
+      <!-- Ambient glow -->
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <!-- Status bar -->
+      <div class="hero-statusbar" aria-live="polite">
+        <span class="status-dot"></span>
+        <span class="font-mono" data-i18n="hero_status">POLICY ENGINE ACTIVE</span>
+        <span class="status-sep" aria-hidden="true">|</span>
+        <span class="font-mono" data-i18n="hero_status2">Ethereum Mainnet</span>
+      </div>
+
+      <div class="hero-layout">
+
+        <!-- Left: headline + CTAs -->
+        <div class="hero-content">
+          <div class="hero-eyebrow font-mono" data-i18n="hero_eyebrow">Zero-Trust Transaction Firewall for Web3</div>
+
+          <h1 id="hero-heading">
+            <div class="hero-line1" data-i18n="hero_line1">Zero trust</div>
+            <div class="hero-line2" data-i18n="hero_line2">starts before</div>
+            <div class="hero-line3 text-accent" data-i18n="hero_line3">you sign.</div>
+          </h1>
+
+          <p class="hero-sub" data-i18n="hero_sub">
+            INTENTRA intercepts every transaction before it reaches your wallet — simulates outcomes, enforces your policy, blocks threats. Pre-execution. Local. Zero external calls.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#install" class="btn-primary" data-i18n="hero_cta1">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v10M4 7l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Install Chrome Extension
+            </a>
+            <a href="#how-it-works" class="btn-ghost" data-i18n="hero_cta2">See how it works →</a>
+          </div>
+
+          <div class="hero-proof font-mono">
+            <span data-i18n="hero_proof1">Free</span>
+            <span class="proof-dot" aria-hidden="true">·</span>
+            <span data-i18n="hero_proof2">No account required</span>
+            <span class="proof-dot" aria-hidden="true">·</span>
+            <span data-i18n="hero_proof3">No external data transmission</span>
+          </div>
+        </div>
+
+        <!-- Right: live overlay mockup -->
+        <div class="hero-visual" aria-label="INTENTRA overlay interface preview" role="img">
+
+          <!-- Terminal header -->
+          <div class="mockup-bar">
+            <div class="mockup-dots" aria-hidden="true">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="mockup-title font-mono">intentra-engine — policy-eval — LIVE</span>
+            <span class="mockup-badge font-mono" id="mockupBadge">● INTERCEPTING</span>
+          </div>
+
+          <!-- Simulated overlay -->
+          <div class="mockup-body">
+
+            <!-- Transaction being evaluated -->
+            <div class="mock-tx-header font-mono">
+              <span class="mock-label">TRANSACTION INTERCEPTED</span>
+              <span class="mock-time" id="mockTime">18:42:07 UTC</span>
+            </div>
+
+            <div class="mock-tx-row">
+              <span class="mock-key font-mono">Method</span>
+              <span class="mock-val font-mono text-accent" id="mockMethod">approve(address,uint256)</span>
+            </div>
+            <div class="mock-tx-row">
+              <span class="mock-key font-mono">Contract</span>
+              <span class="mock-val font-mono" id="mockContract">0x1f98...1234 <span class="mock-tag">UNKNOWN</span></span>
+            </div>
+            <div class="mock-tx-row">
+              <span class="mock-key font-mono">Spender</span>
+              <span class="mock-val font-mono" id="mockSpender">0xdeadbeef...cafe</span>
+            </div>
+            <div class="mock-tx-row mock-tx-row--alert">
+              <span class="mock-key font-mono">Amount</span>
+              <span class="mock-val font-mono text-deny" id="mockAmount">MAX_UINT256 ⚠</span>
+            </div>
+
+            <div class="mock-divider"></div>
+
+            <!-- Policy evaluation -->
+            <div class="mock-eval">
+              <div class="mock-eval-title font-mono">POLICY EVALUATION</div>
+              <div class="mock-reasons" id="mockReasons">
+                <div class="mock-reason mock-reason--active">
+                  <span class="reason-icon">×</span>
+                  <span class="font-mono" data-i18n="mock_reason1">UNLIMITED_APPROVAL detected</span>
+                </div>
+                <div class="mock-reason mock-reason--active">
+                  <span class="reason-icon">×</span>
+                  <span class="font-mono" data-i18n="mock_reason2">Contract not in Trusted list</span>
+                </div>
+                <div class="mock-reason mock-reason--active">
+                  <span class="reason-icon">×</span>
+                  <span class="font-mono" data-i18n="mock_reason3">Spender unverified</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mock-divider"></div>
+
+            <!-- Decision -->
+            <div class="mock-decision" id="mockDecision">
+              <div class="mock-decision-label font-mono" data-i18n="mock_decision_label">ENFORCEMENT DECISION</div>
+              <div class="mock-decision-value font-mono deny-pulse" id="mockVerdict">DENY</div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="mock-actions">
+              <button class="mock-btn mock-btn--deny font-mono" tabindex="-1" aria-hidden="true" data-i18n="mock_btn_deny">✕ Reject</button>
+              <button class="mock-btn mock-btn--approve font-mono" tabindex="-1" aria-hidden="true" data-i18n="mock_btn_approve">▶ Approve</button>
+            </div>
+
+          </div>
+
+          <!-- Live feed below mockup -->
+          <div class="mock-feed" aria-label="Recent transaction decisions">
+            <div class="feed-header font-mono" data-i18n="mock_feed_header">// Recent decisions</div>
+            <div class="feed-list" id="feedList">
+              <div class="feed-item">
+                <span class="feed-verdict feed-verdict--allow font-mono">ALLOW</span>
+                <span class="feed-method font-mono">transfer()</span>
+                <span class="feed-proto font-mono">Uniswap V3</span>
+                <span class="feed-time font-mono">18:42:01</span>
+              </div>
+              <div class="feed-item">
+                <span class="feed-verdict feed-verdict--review font-mono">REVIEW</span>
+                <span class="feed-method font-mono">setApprovalForAll()</span>
+                <span class="feed-proto font-mono">Unknown</span>
+                <span class="feed-time font-mono">18:41:58</span>
+              </div>
+              <div class="feed-item">
+                <span class="feed-verdict feed-verdict--allow font-mono">ALLOW</span>
+                <span class="feed-method font-mono">swap()</span>
+                <span class="feed-proto font-mono">Uniswap V3</span>
+                <span class="feed-time font-mono">18:41:52</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero-scroll" aria-hidden="true">
+        <span class="font-mono">SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STATS BAR
+    ═══════════════════════════════════════════ -->
+    <div class="stats-bar" role="region" aria-label="Key statistics">
+      <div class="stats-inner">
+
+        <!-- Stat 1: Threat vectors -->
+        <button class="stat-item stat-item--btn" id="stat-threats" aria-expanded="false" aria-controls="popup-threats">
+          <span class="stat-num" data-i18n="stat1_num">10</span>
+          <span class="stat-label font-mono" data-i18n="stat1_label">Threat vectors covered</span>
+          <span class="stat-hint font-mono">↗</span>
+        </button>
+
+        <div class="stat-div" aria-hidden="true"></div>
+
+        <!-- Stat 2: Enforcement modes → scrolls to Protection Levels -->
+        <a id="statScrollLink" class="stat-item stat-item--btn" href="#protection-levels">
+          <span class="stat-num" data-i18n="stat2_num">3</span>
+          <span class="stat-label font-mono" data-i18n="stat2_label">Enforcement modes</span>
+          <span class="stat-hint font-mono">↗</span>
+        </a>
+
+        <div class="stat-div" aria-hidden="true"></div>
+
+        <!-- Stat 3: EVM Chain Support -->
+        <button class="stat-item stat-item--btn" id="stat-servers" aria-expanded="false" aria-controls="popup-servers">
+          <span class="stat-num" data-i18n="stat3_num">1</span>
+          <span class="stat-label font-mono" data-i18n="stat3_label">Supported chains</span>
+          <span class="stat-hint font-mono">↗</span>
+        </button>
+
+        <div class="stat-div" aria-hidden="true"></div>
+
+        <!-- Stat 4: Local enforcement -->
+        <button class="stat-item stat-item--btn" id="stat-local" aria-expanded="false" aria-controls="popup-local">
+          <span class="stat-num" data-i18n="stat4_num">100%</span>
+          <span class="stat-label font-mono" data-i18n="stat4_label">Local enforcement</span>
+          <span class="stat-hint font-mono">↗</span>
+        </button>
+
+        <div class="stat-div" aria-hidden="true"></div>
+
+        <!-- Stat 5: Fee -->
+        <button class="stat-item stat-item--btn" id="stat-fee" aria-expanded="false" aria-controls="popup-fee">
+          <span class="stat-num" data-i18n="stat5_num">0%</span>
+          <span class="stat-label font-mono" data-i18n="stat5_label">Fee on transactions</span>
+          <span class="stat-hint font-mono">↗</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         STAT POPUPS
+    ═══════════════════════════════════════════ -->
+
+    <!-- Popup backdrop -->
+    <div class="stat-backdrop" id="statBackdrop" aria-hidden="true"></div>
+
+    <!-- Popup: Threat Vectors -->
+    <div class="stat-popup" id="popup-threats" role="dialog" aria-modal="true" aria-labelledby="popup-threats-title" hidden>
+      <div class="stat-popup-header">
+        <div>
+        <div class="stat-popup-eyebrow font-mono" data-i18n="pthr_eyebrow">THREAT COVERAGE — V1</div>
+        <h3 id="popup-threats-title" data-i18n="pthr_title">10 Threat Vectors Covered</h3>
+      </div>
+      <button class="stat-popup-close" aria-label="Close">✕</button>
+      </div>
+      <div class="stat-popup-body">
+        <div class="threat-group">
+          <div class="threat-group-label font-mono" data-i18n="pthr_g1">APPROVAL &amp; PERMIT ABUSE</div>
+          <div class="threat-row"><span class="threat-tag threat-tag--deny">BLOCK</span><span data-i18n="pthr_r1">Unlimited token approvals (MAX_UINT256) — covers both <code>approve</code> and <code>permit</code> tx types</span></div>
+          <div class="threat-row"><span class="threat-tag threat-tag--review">REVIEW</span><span data-i18n="pthr_r2">Permit signatures with excessive TTL — intercepts <code>signTypedData_v4</code>, evaluates deadline</span></div>
+        </div>
+        <div class="threat-group">
+          <div class="threat-group-label font-mono" data-i18n="pthr_g2">VELOCITY &amp; AUTOMATION ATTACKS</div>
+          <div class="threat-row"><span class="threat-tag threat-tag--deny">BLOCK</span><span data-i18n="pthr_r3">Automated drain scripts — kill switch auto-activates on TX/min threshold breach</span></div>
+          <div class="threat-row"><span class="threat-tag threat-tag--review">REVIEW</span><span data-i18n="pthr_r4">Proxy Upgrade Attack — delegatecall patterns and upgradeable proxy signatures flagged before signing</span></div>
+        </div>
+        <div class="threat-group">
+          <div class="threat-group-label font-mono" data-i18n="pthr_g3">VALUE &amp; TRANSFER RISK</div>
+          <div class="threat-row"><span class="threat-tag threat-tag--review">REVIEW</span><span data-i18n="pthr_r5">High-value native ETH transfers — flags single transfers above configured threshold</span></div>
+          <div class="threat-row"><span class="threat-tag threat-tag--deny">BLOCK</span><span data-i18n="pthr_r6">Daily spending cap — transactions are blocked automatically when aggregate daily ETH spending exceeds your configured limit.</span></div>
+        </div>
+        <div class="threat-group">
+          <div class="threat-group-label font-mono" data-i18n="pthr_g4">CONTRACT RISK</div>
+          <div class="threat-row"><span class="threat-tag threat-tag--review">REVIEW</span><span data-i18n="pthr_r7">First-time interaction with unknown contract — backed by interaction history + seed whitelist</span></div>
+          <div class="threat-row"><span class="threat-tag threat-tag--review">REVIEW</span><span data-i18n="pthr_r8">High-value calls to unverified contracts — triggers when ETH value exceeds contract call threshold</span></div>
+          <div class="threat-row"><span class="threat-tag threat-tag--review">REVIEW</span><span data-i18n="pthr_r9">Any contract call in Paranoid mode — all CONTRACT_CALL txs require explicit review</span></div>
+        </div>
+        <div class="threat-group">
+          <div class="threat-group-label font-mono" data-i18n="pthr_g5">EIP-7702</div>
+          <div class="threat-row"><span class="threat-tag threat-tag--deny">BLOCK</span><span data-i18n="pthr_r10">Destination wallet delegated via EIP-7702 — reads <code>eth_getCode</code>, detects <code>0xef0100</code> prefix</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup: EVM Chain Support -->
+    <div class="stat-popup stat-popup--sm" id="popup-servers" role="dialog" aria-modal="true" aria-labelledby="popup-servers-title" hidden>
+      <div class="stat-popup-header">
+        <div>
+        <div class="stat-popup-eyebrow font-mono" data-i18n="psrv_eyebrow">ARCHITECTURE</div>
+        <h3 id="popup-servers-title" data-i18n="psrv_title">EVM Chain Support</h3>
+      </div>
+      <button class="stat-popup-close" aria-label="Close">✕</button>
+      </div>
+      <div class="stat-popup-body">
+        <p class="popup-lead" data-i18n="psrv_lead">Intentra is engineered for EVM-compatible chains. V1 ships with full Ethereum Mainnet coverage. Multi-chain expansion coming in V2.</p>
+        <div class="server-table">
+          <div class="server-row server-row--header font-mono">
+            <span data-i18n="psrv_col_chain">Chain</span><span data-i18n="psrv_col_status">Status</span>
+          </div>
+          <div class="server-row">
+            <span>Ethereum Mainnet</span><span class="srv-yes" data-i18n="psrv_eth_status">✅ Live — V1</span>
+          </div>
+          <div class="server-row">
+            <span>PulseChain</span><span class="srv-neutral" data-i18n="psrv_v2_status">🔜 V2</span>
+          </div>
+          <div class="server-row">
+            <span>Base</span><span class="srv-neutral" data-i18n="psrv_v2_status">🔜 V2</span>
+          </div>
+          <div class="server-row">
+            <span>Arbitrum One</span><span class="srv-neutral" data-i18n="psrv_v2_status">🔜 V2</span>
+          </div>
+          <div class="server-row">
+            <span>Optimism</span><span class="srv-neutral" data-i18n="psrv_v2_status">🔜 V2</span>
+          </div>
+        </div>
+        <p class="popup-note font-mono" data-i18n="psrv_note">Intentra works on any EVM-compatible chain with no extra setup. New chains are added without affecting your existing protection rules.</p>
+      </div>
+    </div>
+
+    <!-- Popup: Local Enforcement -->
+    <div class="stat-popup stat-popup--sm" id="popup-local" role="dialog" aria-modal="true" aria-labelledby="popup-local-title" hidden>
+      <div class="stat-popup-header">
+        <div>
+        <div class="stat-popup-eyebrow font-mono" data-i18n="ploc_eyebrow">ARCHITECTURE</div>
+        <h3 id="popup-local-title" data-i18n="ploc_title">Your Protection Runs Locally</h3>
+      </div>
+      <button class="stat-popup-close" aria-label="Close">✕</button>
+      </div>
+      <div class="stat-popup-body">
+        <p class="popup-lead" data-i18n="ploc_lead">Every decision Intentra makes happens inside your browser. Intentra never has access to your private keys or funds.</p>
+        <div class="server-table">
+          <div class="server-row server-row--header font-mono">
+            <span data-i18n="ploc_col1">Component</span><span data-i18n="ploc_col2">Where it runs</span><span data-i18n="ploc_col3">Status</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_c1">Policy engine</span><span data-i18n="ploc_device">Your device, privately</span><span class="srv-yes" data-i18n="ploc_s_local">✓ Local</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_c2">Contract whitelist</span><span data-i18n="ploc_device">Your device, privately</span><span class="srv-yes" data-i18n="ploc_s_local">✓ Local</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_c3">Transaction history</span><span data-i18n="ploc_device">Your device, privately</span><span class="srv-yes" data-i18n="ploc_s_local">✓ Local</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_c4">RPC calls</span><span data-i18n="ploc_wallet_rpc">Your wallet's RPC</span><span class="srv-neutral" data-i18n="ploc_s_rpc">↑ Your RPC</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_c5">Intentra analytics</span><span>—</span><span class="srv-no" data-i18n="ploc_s_never">✕ Never</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_c6">Reputation APIs</span><span>—</span><span class="srv-no" data-i18n="ploc_s_never">✕ Never</span>
+          </div>
+        </div>
+        <div class="server-table">
+          <div class="server-row server-row--header font-mono">
+            <span data-i18n="ploc_wcol">Wallet</span><span data-i18n="ploc_col3">Status</span>
+          </div>
+          <div class="server-row">
+            <span>MetaMask</span><span class="srv-yes" data-i18n="ploc_s_supported">✓ Supported</span>
+          </div>
+          <div class="server-row">
+            <span>Rabby</span><span class="srv-yes" data-i18n="ploc_s_supported">✓ Supported</span>
+          </div>
+          <div class="server-row">
+            <span>Coinbase Wallet</span><span class="srv-yes" data-i18n="ploc_s_supported">✓ Supported</span>
+          </div>
+          <div class="server-row">
+            <span data-i18n="ploc_any_wallet">Any EVM browser wallet</span><span class="srv-yes" data-i18n="ploc_s_supported">✓ Supported</span>
+          </div>
+        </div>
+        <p class="popup-note font-mono" data-i18n="ploc_note">Works with EVM-compatible browser wallets. The only external calls are to your wallet's RPC provider — the same calls your wallet already makes.</p>
+      </div>
+    </div>
+
+    <!-- Popup: 0% Fee -->
+    <div class="stat-popup stat-popup--sm" id="popup-fee" role="dialog" aria-modal="true" aria-labelledby="popup-fee-title" hidden>
+      <div class="stat-popup-header">
+        <div>
+        <div class="stat-popup-eyebrow font-mono" data-i18n="pfee_eyebrow">BUSINESS MODEL</div>
+        <h3 id="popup-fee-title" data-i18n="pfee_title">0% Fee. Always.</h3>
+      </div>
+      <button class="stat-popup-close" aria-label="Close">✕</button>
+      </div>
+      <div class="stat-popup-body">
+        <p class="popup-lead" data-i18n="pfee_lead">INTENTRA charges zero fees on transactions. No basis points, no commission. V1 is free to install and free to use.</p>
+        <p class="popup-note font-mono" data-i18n="pfee_compare_line">Other security tools charge a commission on every transaction. Intentra charges 0%.</p>
+        <div class="donate-box">
+          <div class="donate-label font-mono" data-i18n="pfee_donate_label">SUPPORT DEVELOPMENT</div>
+          <p data-i18n="pfee_donate_text">If INTENTRA has protected your assets and you'd like to support the project, donations are welcome — but never required.</p>
+          <div class="donate-address font-mono">
+            <span class="donate-addr-label" data-i18n="pfee_addr_label">EVM Address</span>
+            <span class="donate-addr" id="donateAddr">— coming soon —</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         HOW IT WORKS — Pipeline
+    ═══════════════════════════════════════════ -->
+    <section class="section" id="how-it-works" aria-labelledby="how-heading">
+      <div class="container">
+
+        <div class="section-label font-mono" data-i18n="how_label">— 01 / HOW IT WORKS —</div>
+        <h2 id="how-heading">
+          <div data-i18n="how_title1">Every transaction.</div>
+          <div class="text-accent" data-i18n="how_title2">Evaluated before it signs.</div>
+        </h2>
+        <p class="section-sub" data-i18n="how_sub">INTENTRA sits between the dApp and your wallet. Every call goes through the engine — no exceptions, no bypasses.</p>
+
+        <div class="pipeline">
+          <div class="pipe-step" data-step="01">
+            <div class="pipe-num font-mono">01</div>
+            <div class="pipe-content">
+              <div class="pipe-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10l10 5 10-5V7L12 2Z" stroke="#00f0ff" stroke-width="1.5" fill="none"/><path d="M12 12V22M2 7l10 5 10-5" stroke="#00f0ff" stroke-width="1.5"/></svg>
+              </div>
+              <h3 data-i18n="pipe1_title">Intercept</h3>
+              <p data-i18n="pipe1_desc">Provider-level hook overrides <code>window.ethereum</code> via EIP-1193. Every <code>eth_sendTransaction</code>, signature request, and typed data call is captured before reaching the wallet.</p>
+              <ul class="pipe-specs">
+                <li class="font-mono" data-i18n="pipe1_s1">EIP-1193 + EIP-6963 support</li>
+                <li class="font-mono" data-i18n="pipe1_s2">Payload capture at browser level</li>
+                <li class="font-mono" data-i18n="pipe1_s3">Transparent to dApp</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pipe-connector" aria-hidden="true">
+            <div class="connector-line"></div>
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+
+          <div class="pipe-step" data-step="02">
+            <div class="pipe-num font-mono">02</div>
+            <div class="pipe-content">
+              <div class="pipe-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00f0ff" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 data-i18n="pipe2_title">Simulate</h3>
+              <p data-i18n="pipe2_desc">Preflight execution against current on-chain state. Calldata is decoded to determine expected token movements, approval grants, and proxy implementation addresses.</p>
+              <ul class="pipe-specs">
+                <li class="font-mono" data-i18n="pipe2_s1">Intent parsing + outcome modeling</li>
+                <li class="font-mono" data-i18n="pipe2_s2">Approval grant analysis</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pipe-connector" aria-hidden="true">
+            <div class="connector-line"></div>
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+
+          <div class="pipe-step" data-step="03">
+            <div class="pipe-num font-mono">03</div>
+            <div class="pipe-content">
+              <div class="pipe-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6L12 2Z" stroke="#00f0ff" stroke-width="1.5" fill="none"/><path d="M9 12l2 2 4-4" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 data-i18n="pipe3_title">Enforce</h3>
+              <p data-i18n="pipe3_desc">Policy evaluation against your active mode. Three deterministic outcomes: <strong>Allow</strong>, <strong>Review</strong>, or <strong>Deny</strong>. Out-of-policy transactions are blocked before the wallet signing prompt appears.</p>
+              <ul class="pipe-specs">
+                <li class="font-mono" data-i18n="pipe3_s1">Zero-trust evaluation</li>
+                <li class="font-mono" data-i18n="pipe3_s2">Permissive: monitor + always-on protections</li>
+                <li class="font-mono" data-i18n="pipe3_s3">Balanced: enforce on suspicious patterns</li>
+                <li class="font-mono" data-i18n="pipe3_s4">Paranoid: review on every contract call</li>
+                <li class="font-mono" data-i18n="pipe3_s5">Casual / trader / whale protection profiles</li>
+                <li class="font-mono" data-i18n="pipe3_s6">Core protections always on</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-note font-mono" data-i18n="pipe_note">// Intentra never has access to your private keys or funds.</div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PROTECTION LEVELS
+    ═══════════════════════════════════════════ -->
+    <section class="section section--dark" id="protection-levels" aria-labelledby="prot-heading">
+      <div class="container">
+
+        <div class="section-label font-mono" data-i18n="prot_label">— 02 / PROTECTION LEVELS —</div>
+        <h2 id="prot-heading">
+          <div data-i18n="prot_title1">Built for how you actually use DeFi.</div>
+        </h2>
+        <p class="section-sub" data-i18n="prot_sub">Choose how Intentra reacts, and how much risk you're willing to take.</p>
+
+        <!-- Security Modes -->
+        <div class="prot-block">
+          <div class="prot-block-heading font-mono" data-i18n="prot_modes_heading">How Intentra reacts</div>
+          <div class="modes-row">
+
+            <div class="mode-card mode-card--permissive">
+              <div class="mode-card-header">
+                <span class="mode-badge" data-i18n="sm1_name">Permissive</span>
+              </div>
+              <p data-i18n="sm1_desc">Logs everything. Your configured thresholds still apply, but no transactions are blocked automatically. Built for developers and power users who want full visibility.</p>
+              <div class="mode-blocks" data-i18n="sm1_tag">For testing and advanced users</div>
+            </div>
+
+            <div class="mode-card mode-card--balanced">
+              <div class="mode-card-header">
+                <span class="mode-badge" data-i18n="sm2_name">Balanced</span>
+                <span class="mode-default font-mono" data-i18n="sm2_rec">RECOMMENDED</span>
+              </div>
+              <p data-i18n="sm2_desc">Blocks high-risk transactions automatically. Flags suspicious patterns for your review before anything is signed.</p>
+              <div class="mode-blocks" data-i18n="sm2_tag">Default — best for most DeFi users</div>
+            </div>
+
+            <div class="mode-card mode-card--paranoid">
+              <div class="mode-card-header">
+                <span class="mode-badge" data-i18n="sm3_name">Paranoid</span>
+              </div>
+              <p data-i18n="sm3_desc">Every contract interaction requires your explicit approval. Maximum friction, maximum protection.</p>
+              <div class="mode-blocks" data-i18n="sm3_tag">For high-value wallets and cautious users</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Protection Profiles -->
+        <div class="prot-block">
+          <div class="prot-block-heading font-mono" data-i18n="prot_prof_heading">Set your risk tolerance</div>
+          <div class="modes-row">
+
+            <div class="mode-card mode-card--casual">
+              <div class="mode-card-header">
+                <span class="mode-badge" data-i18n="pp1_name">Casual</span>
+              </div>
+              <p data-i18n="pp1_desc">I use DeFi occasionally. Tighter limits, more alerts.</p>
+              <div class="mode-blocks" data-i18n="pp1_thresh">0.5 ETH/tx · 0.2 ETH contract calls · $500 approval alert<br>2 ETH daily cap · 3 tx/min · 4h max permit</div>
+            </div>
+
+            <div class="mode-card mode-card--trader">
+              <div class="mode-card-header">
+                <span class="mode-badge" data-i18n="pp2_name">Trader</span>
+                <span class="mode-default font-mono" data-i18n="pp2_rec">DEFAULT</span>
+              </div>
+              <p data-i18n="pp2_desc">I'm active in DeFi regularly. Balanced defaults for most users.</p>
+              <div class="mode-blocks" data-i18n="pp2_thresh">2 ETH/tx · 0.5 ETH contract calls · $5,000 approval alert<br>10 ETH daily cap · 5 tx/min · 24h max permit</div>
+            </div>
+
+            <div class="mode-card mode-card--whale">
+              <div class="mode-card-header">
+                <span class="mode-badge" data-i18n="pp3_name">Whale</span>
+              </div>
+              <p data-i18n="pp3_desc">I move large amounts regularly. Higher limits, less friction.</p>
+              <div class="mode-blocks" data-i18n="pp3_thresh">20 ETH/tx · 5 ETH contract calls · $50,000 approval alert<br>100 ETH daily cap · 10 tx/min · 72h max permit</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="thresholds-accordion">
+          <button class="thresholds-toggle" aria-expanded="false"
+                  aria-controls="thresholds-panel">
+            <span>Understand your thresholds</span>
+            <span class="thresholds-toggle__arrow">↓</span>
+          </button>
+          <div class="thresholds-panel" id="thresholds-panel" hidden>
+            <div class="thresholds-grid">
+
+              <!-- Card 1 -->
+              <div class="threshold-card">
+                <div class="threshold-card__header">
+                  <span class="threshold-card__icon">↑</span>
+                  <span class="threshold-card__name">Max per transaction</span>
+                </div>
+                <p class="threshold-card__what">The most ETH you can send in a single transaction before Intentra asks you to review it.</p>
+                <p class="threshold-card__how"><strong>How to use it:</strong> Set it slightly above your typical single transaction. If you rarely send more than 1 ETH at once, keep it low.</p>
+                <div class="threshold-card__trigger">
+                  <span class="threshold-card__trigger-label">What triggers this</span>
+                  <p>You're using a DeFi interface and a malicious script silently modifies the recipient address and bumps the amount to 5 ETH. If your limit is 2 ETH, Intentra catches it before you sign.</p>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="threshold-card">
+                <div class="threshold-card__header">
+                  <span class="threshold-card__icon">⬡</span>
+                  <span class="threshold-card__name">Contract interaction limit</span>
+                </div>
+                <p class="threshold-card__what">When you call a smart contract and send ETH along with it — like depositing into a protocol — this is the ceiling before Intentra flags it.</p>
+                <p class="threshold-card__how"><strong>How to use it:</strong> Keep it lower than your max per transaction. This catches protocols that try to pull more ETH than you expect on a contract call.</p>
+                <div class="threshold-card__trigger">
+                  <span class="threshold-card__trigger-label">What triggers this</span>
+                  <p>You click "deposit 0.1 ETH" on a yield protocol, but the contract was upgraded and now requests 3 ETH. Your 0.5 ETH limit stops it cold.</p>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="threshold-card">
+                <div class="threshold-card__header">
+                  <span class="threshold-card__icon">✓</span>
+                  <span class="threshold-card__name">Token approval limit</span>
+                </div>
+                <p class="threshold-card__what">The maximum dollar value you're allowing a contract to spend on your behalf. Approvals above this are blocked automatically.</p>
+                <p class="threshold-card__how"><strong>How to use it:</strong> Keep this tight. Most legitimate interactions don't need access to your entire token balance.</p>
+                <div class="threshold-card__trigger">
+                  <span class="threshold-card__trigger-label">What triggers this</span>
+                  <p>A phishing site mimics a DEX and asks you to approve unlimited USDC access — a common drain vector. Your $5,000 limit blocks the unlimited approval before it reaches your wallet.</p>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="threshold-card">
+                <div class="threshold-card__header">
+                  <span class="threshold-card__icon">⏱</span>
+                  <span class="threshold-card__name">Session key duration</span>
+                </div>
+                <p class="threshold-card__what">How long a dApp can hold a delegated authorization to act on your account. Keys that request longer access than this get flagged.</p>
+                <p class="threshold-card__how"><strong>How to use it:</strong> Short sessions are safer. If a dApp asks for 30-day access to automate a single trade, that's worth reviewing carefully.</p>
+                <div class="threshold-card__trigger">
+                  <span class="threshold-card__trigger-label">What triggers this</span>
+                  <p>A gaming dApp requests a session key valid for 72 hours — but it quietly includes permission to transfer your main wallet tokens. Your 24h limit flags it for review before you authorize anything.</p>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="threshold-card">
+                <div class="threshold-card__header">
+                  <span class="threshold-card__icon">⬇</span>
+                  <span class="threshold-card__name">Daily spending cap</span>
+                </div>
+                <p class="threshold-card__what">The total ETH you can move across all transactions in a single day. Once you hit this, everything stops until tomorrow.</p>
+                <p class="threshold-card__how"><strong>How to use it:</strong> Set it at your realistic daily maximum. It's your last line of defense against attacks that stack multiple transactions to drain your wallet gradually.</p>
+                <div class="threshold-card__trigger">
+                  <span class="threshold-card__trigger-label">What triggers this</span>
+                  <p>Your wallet gets compromised and an attacker starts sending small transactions repeatedly — 0.3 ETH, 0.5 ETH, 0.8 ETH. Your 10 ETH daily cap cuts them off before the full balance is gone.</p>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="threshold-card">
+                <div class="threshold-card__header">
+                  <span class="threshold-card__icon">⚡</span>
+                  <span class="threshold-card__name">Transaction speed limit</span>
+                </div>
+                <p class="threshold-card__what">How many transactions can go through per minute. A burst above this triggers the kill switch automatically.</p>
+                <p class="threshold-card__how"><strong>How to use it:</strong> Leave it at default unless you run automated strategies. Normal DeFi users don't send more than 3–5 transactions per minute.</p>
+                <div class="threshold-card__trigger">
+                  <span class="threshold-card__trigger-label">What triggers this</span>
+                  <p>Malware on your machine starts firing transactions silently in the background. The velocity kill switch activates after the 5th transaction in under 60 seconds and locks everything down.</p>
+                </div>
+              </div>
+
+            </div><!-- /.thresholds-grid -->
+          </div><!-- /.thresholds-panel -->
+        </div><!-- /.thresholds-accordion -->
+
+        <p class="pipe-note" data-i18n="prot_cta">Casual, Trader, and Whale are starting points — every threshold is fully adjustable. Dial in exactly the protection level that fits your workflow.</p>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         COMPARISON — Warning is not enforcement
+    ═══════════════════════════════════════════ -->
+    <section class="section" id="comparison" aria-labelledby="comp-heading">
+      <div class="container">
+
+        <div class="section-label font-mono" data-i18n="comp_label">— 03 / THE ENFORCEMENT DIFFERENCE —</div>
+        <h2 id="comp-heading">
+          <div data-i18n="comp_title1">Warnings don't stop</div>
+          <div class="text-deny" data-i18n="comp_title2">drains.</div>
+        </h2>
+        <p class="section-sub" data-i18n="comp_sub">A warning only works if you read it, understand it, and act on it correctly — every single time. Intentra removes that requirement.</p>
+
+        <div class="comp-table" role="table" aria-label="Comparison table">
+          <div class="comp-row comp-row--header" role="row">
+            <div class="comp-cell comp-cell--dim font-mono" role="columnheader" data-i18n="comp_col0">Dimension</div>
+            <div class="comp-cell comp-cell--bad font-mono" role="columnheader">
+              <span class="col-icon" aria-hidden="true">⚠</span>
+              <span data-i18n="comp_col1">Warning-Based Tools</span>
+            </div>
+            <div class="comp-cell comp-cell--good font-mono" role="columnheader">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1L13 4V10L7 13L1 10V4L7 1Z" stroke="#00f0ff" stroke-width="1.2"/></svg>
+              <span data-i18n="comp_col2">INTENTRA</span>
+            </div>
+          </div>
+
+          <div class="comp-row" role="row">
+            <div class="comp-cell comp-cell--label font-mono" role="rowheader" data-i18n="comp_dim1">Evaluation</div>
+            <div class="comp-cell comp-cell--std" role="cell" data-i18n="comp1_bad">Heuristic signals. Output is a warning, not a decision.</div>
+            <div class="comp-cell comp-cell--int" role="cell" data-i18n="comp1_good">Clear rules you set. Output is a block, a review, or a pass.</div>
+          </div>
+          <div class="comp-row" role="row">
+            <div class="comp-cell comp-cell--label font-mono" role="rowheader" data-i18n="comp_dim2">Outcome</div>
+            <div class="comp-cell comp-cell--std" role="cell" data-i18n="comp2_bad">User must abort manually after interpreting the alert.</div>
+            <div class="comp-cell comp-cell--int" role="cell" data-i18n="comp2_good">Risky transactions blocked or flagged before you sign anything.</div>
+          </div>
+          <div class="comp-row" role="row">
+            <div class="comp-cell comp-cell--label font-mono" role="rowheader" data-i18n="comp_dim3">Control</div>
+            <div class="comp-cell comp-cell--std" role="cell" data-i18n="comp3_bad">No control. The tool decides for you.</div>
+            <div class="comp-cell comp-cell--int" role="cell" data-i18n="comp3_good">You're always in control. Review or override any decision.</div>
+          </div>
+          <div class="comp-row" role="row">
+            <div class="comp-cell comp-cell--label font-mono" role="rowheader" data-i18n="comp_dim4">Fee</div>
+            <div class="comp-cell comp-cell--std" role="cell" data-i18n="comp4_bad">Some charge up to 0.8% on every swap intercepted.</div>
+            <div class="comp-cell comp-cell--int" role="cell" data-i18n="comp4_good">No fee on your transactions. Ever.</div>
+          </div>
+          <div class="comp-row comp-row--last" role="row">
+            <div class="comp-cell comp-cell--label font-mono" role="rowheader" data-i18n="comp_dim5">Trust Model</div>
+            <div class="comp-cell comp-cell--std" role="cell" data-i18n="comp5_bad">Correct human judgment under adversarial pressure.</div>
+            <div class="comp-cell comp-cell--int" role="cell" data-i18n="comp5_good">You set the rules. Intentra enforces them automatically.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ROADMAP
+    ═══════════════════════════════════════════ -->
+    <section class="section section--dark" id="roadmap" aria-labelledby="roadmap-heading">
+      <div class="container">
+
+        <div class="section-label font-mono" data-i18n="road_label">— 04 / ROADMAP —</div>
+        <h2 id="roadmap-heading">
+          <div data-i18n="road_title1">V1 is live.</div>
+          <div class="text-accent" data-i18n="road_title2">The engine evolves.</div>
+        </h2>
+        <p class="section-sub" data-i18n="road_sub">V1 is live. Every transaction you sign is evaluated before it reaches your wallet. The roadmap moves enforcement closer to execution — from the browser to the account layer.</p>
+
+        <div class="roadmap-track">
+
+          <div class="road-item road-item--done">
+            <div class="road-status font-mono" data-i18n="road_done">✓ V1 — LIVE</div>
+            <h3 data-i18n="road1_title">Policy Firewall — Chrome Extension</h3>
+            <p data-i18n="road1_desc">EIP-1193 interception, configurable policy engine, proxy detection, velocity kill switch, 10 threat vectors, local enforcement.</p>
+          </div>
+
+          <div class="road-connector" aria-hidden="true"></div>
+
+          <div class="road-item road-item--next">
+            <div class="road-status font-mono" data-i18n="road_next">→ V1.5 — NEXT</div>
+            <h3 data-i18n="road2_title">Session Key Auditor</h3>
+            <p data-i18n="road2_desc">EIP-7702 and ERC-4337 let dApps request delegated signing authority over your account. Intentra evaluates the spend limit, duration, and permission scope of every session key before you authorize it.</p>
+          </div>
+
+          <div class="road-connector" aria-hidden="true"></div>
+
+          <div class="road-item road-item--planned">
+            <div class="road-status font-mono" data-i18n="road_v2_status">→ V2 — PLANNED</div>
+            <h3 data-i18n="road3_title">Full-Spectrum Coverage</h3>
+            <p data-i18n="road3_desc">ERC-20 transfer enforcement and complete EIP-7702 delegation coverage. V2 closes the gaps that V1 leaves open — token-level drain detection, full type-0x04 interception, and transaction simulation across the internal call tree.</p>
+          </div>
+
+          <div class="road-connector" aria-hidden="true"></div>
+
+          <div class="road-item road-item--planned">
+            <div class="road-status font-mono" data-i18n="road_v3_status">◇ VISION</div>
+            <h3 data-i18n="road4_title">Threat Intelligence Network</h3>
+            <p data-i18n="road4_desc">Every Intentra user is a sensor. V3 aggregates enforcement data across the network to build a live threat intelligence layer — tracking emerging attack patterns, flagging new malicious contracts, and feeding that intelligence back into the engine before attacks go mainstream.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         INSTALL / CTA
+    ═══════════════════════════════════════════ -->
+    <section class="section section--cta" id="install" aria-labelledby="install-heading">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="container">
+
+        <div class="cta-inner">
+          <div class="cta-content">
+            <div class="section-label font-mono" data-i18n="cta_label">— INSTALL —</div>
+            <h2 id="install-heading">
+              <div data-i18n="cta_title1">Your wallet signs.</div>
+              <div class="text-accent" data-i18n="cta_title2">INTENTRA decides first.</div>
+            </h2>
+            <p data-i18n="cta_sub">Free Chrome extension. No account. No subscription. No transaction fees. Local enforcement — your policy, your browser, your rules.</p>
+
+            <div class="cta-actions">
+              <a href="https://chrome.google.com/webstore" class="btn-primary btn-primary--large" target="_blank" rel="noopener noreferrer" data-i18n="cta_btn1">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v8M6 10h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                Add to Chrome — Free
+              </a>
+            </div>
+          </div>
+
+          <!-- Mini mockup repeated -->
+          <div class="cta-visual" aria-hidden="true">
+            <div class="cta-mock font-mono">
+              <div class="cta-mock-row">
+                <span class="feed-verdict feed-verdict--deny">DENY</span>
+                <span>approve(MAX_UINT256)</span>
+              </div>
+              <div class="cta-mock-row">
+                <span class="feed-verdict feed-verdict--allow">ALLOW</span>
+                <span>swap() — Uniswap V3</span>
+              </div>
+              <div class="cta-mock-row">
+                <span class="feed-verdict feed-verdict--review">REVIEW</span>
+                <span>setApprovalForAll()</span>
+              </div>
+              <div class="cta-mock-row">
+                <span class="feed-verdict feed-verdict--deny">DENY</span>
+                <span>transfer() → 0xdead…</span>
+              </div>
+              <div class="cta-mock-row">
+                <span class="feed-verdict feed-verdict--allow">ALLOW</span>
+                <span>addLiquidity() — Aave</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FAQ
+    ═══════════════════════════════════════════ -->
+    <section class="section section--dark" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+
+        <div class="section-label font-mono" data-i18n="faq_label">— FAQ —</div>
+        <h2 id="faq-heading" data-i18n="faq_title">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-1">
+              <span data-i18n="faq_q1">Does Intentra have access to my wallet or private keys?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-1" hidden>
+              <p data-i18n="faq_a1">No. Intentra only intercepts JSON-RPC calls before they reach your wallet. It never touches your keys, seed phrase, or balance.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-2">
+              <span data-i18n="faq_q2">Do my transactions pass through your servers?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-2" hidden>
+              <p data-i18n="faq_a2">No. All enforcement happens locally in your browser. No transaction data ever leaves your device.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-3">
+              <span data-i18n="faq_q3">Does it work with any wallet?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-3" hidden>
+              <p data-i18n="faq_a3">It works with any wallet that uses window.ethereum — MetaMask, Rabby, Brave Wallet, and others. It does not cover WalletConnect flows or transactions initiated directly from the wallet popup.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-4">
+              <span data-i18n="faq_q4">Does it block every transaction or just dangerous ones?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-4" hidden>
+              <p data-i18n="faq_a4">Only transactions that violate your policy. Normal transactions pass through without interruption.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-5">
+              <span data-i18n="faq_q5">What if Intentra blocks something I actually want to do?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-5" hidden>
+              <p data-i18n="faq_a5">You can adjust your thresholds, add the contract to your trusted list, or temporarily switch to Permissive mode.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-6">
+              <span data-i18n="faq_q6">Is it free forever?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-6" hidden>
+              <p data-i18n="faq_a6">V1 is completely free. No account, no subscription, no transaction fees.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-7">
+              <span data-i18n="faq_q7">How do you make money then?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-7" hidden>
+              <p data-i18n="faq_a7">Advanced V2 features will be available as an optional subscription — never a percentage of your transactions.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-panel-8">
+              <span data-i18n="faq_q8">Which networks does it support?</span>
+              <span class="faq-arrow" aria-hidden="true">↓</span>
+            </button>
+            <div class="faq-answer" id="faq-panel-8" hidden>
+              <p data-i18n="faq_a8">Ethereum Mainnet and Sepolia testnet. Multi-chain support is on the roadmap.</p>
+            </div>
+          </div>
+
+        </div><!-- /.faq-list -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <a href="/" class="nav-logo footer-logo" aria-label="INTENTRA home">
+          <svg width="20" height="24" viewBox="0 0 100 121" fill="#00f0ff" aria-hidden="true">
+            <!-- Vertical arm: full height -->
+            <rect x="42.89" y="0"     width="14.22" height="121"/>
+            <!-- H arm 1 left segment -->
+            <rect x="0"     y="37.14" width="57.11" height="14.01"/>
+            <!-- H arm 1 right segment -->
+            <rect x="64.1"  y="37.14" width="35.9"  height="14.01"/>
+            <!-- H arm 2 left segment -->
+            <rect x="0"     y="69.38" width="35.9"  height="14.24"/>
+            <!-- H arm 2 right segment -->
+            <rect x="42.89" y="69.38" width="57.11" height="14.24"/>
+          </svg>
+          <span>INTENTRA</span>
+        </a>
+        <p class="footer-tagline font-mono" data-i18n="footer_tagline">Zero-Trust Transaction Firewall for Web3</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#how-it-works" data-i18n="footer_how">How it works</a>
+        <a href="threats.html" data-i18n="footer_threats">Threats covered</a>
+        <a href="#comparison" data-i18n="footer_comp">Comparison</a>
+        <a href="#roadmap" data-i18n="footer_road">Roadmap</a>
+        <a href="#install" data-i18n="footer_install">Install</a>
+      </nav>
+
+      <div class="footer-bottom">
+        <span class="font-mono footer-copy">© 2026 INTENTRA. <span data-i18n="footer_rights">All rights reserved.</span></span>
+        <span class="font-mono footer-build" data-i18n="footer_build">Built with zero trust.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

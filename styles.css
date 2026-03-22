@@ -1753,9 +1753,38 @@ code {
   .cta-inner { grid-template-columns: 1fr; }
   .cta-visual { display: none; }
   .comp-row { grid-template-columns: 1fr; }
-  .comp-row--header .comp-cell--dim { display: none; }
+  .comp-row--header { display: none; }
   .comp-cell + .comp-cell { border-left: none; border-top: 1px solid var(--border); }
-  .comp-cell--label { background: rgba(0,0,0,0.15); font-size: 0.6rem; }
+  .comp-cell--label {
+    background: rgba(0,0,0,0.25);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    padding: 0.5rem 1.25rem;
+  }
+  /* Etiqueta de columna via ::before para dar contexto en mobile */
+  .comp-cell--std::before {
+    content: "⚠  Others";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    color: var(--deny);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .comp-cell--int::before {
+    content: "◎  INTENTRA";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    color: var(--cyan);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+  .comp-cell--std { background: rgba(255, 61, 107, 0.03); }
+  .comp-cell--int { background: rgba(0, 240, 255, 0.03); }
   .modes-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-links { flex-wrap: wrap; gap: 1rem; }
@@ -1769,7 +1798,9 @@ code {
   .nav-actions .btn-nav { display: none; }
 
   /* ── Mobile menu (dropdown) ── */
-  .nav-links--open {
+  /* threats.js toggles .nav-open; app.js toggles .nav-links--open — ambos aplican */
+  .nav-links--open,
+  .nav-open {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -1786,7 +1817,8 @@ code {
     animation: menuSlideDown 0.22s var(--ease);
   }
 
-  .nav-links--open a {
+  .nav-links--open a,
+  .nav-open a {
     padding: 1rem 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.8rem;
@@ -1795,8 +1827,10 @@ code {
     transition: color 0.2s;
   }
 
-  .nav-links--open a:last-child { border-bottom: none; }
-  .nav-links--open a:hover { color: var(--text); }
+  .nav-links--open a:last-child,
+  .nav-open a:last-child { border-bottom: none; }
+  .nav-links--open a:hover,
+  .nav-open a:hover { color: var(--text); }
 
   /* ── Burger → ✕ animation ── */
   .nav-burger[aria-expanded="true"] span:nth-child(1) {

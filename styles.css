@@ -1762,13 +1762,82 @@ code {
 }
 
 @media (max-width: 768px) {
+  /* ── Nav base ── */
   .nav-links { display: none; }
   .nav-burger { display: flex; }
+  .nav-inner { gap: 1rem; }
+  .nav-actions .btn-nav { display: none; }
+
+  /* ── Mobile menu (dropdown) ── */
+  .nav-links--open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(8, 13, 20, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem clamp(1.25rem, 4vw, 3rem) 1.5rem;
+    gap: 0;
+    z-index: 99;
+    animation: menuSlideDown 0.22s var(--ease);
+  }
+
+  .nav-links--open a {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links--open a:last-child { border-bottom: none; }
+  .nav-links--open a:hover { color: var(--text); }
+
+  /* ── Burger → ✕ animation ── */
+  .nav-burger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* ── Stats bar ── */
   .threats-grid { grid-template-columns: 1fr; }
-  .stats-inner { justify-content: center; }
+  .stats-inner { justify-content: center; gap: 0.5rem; }
   .stat-div { display: none; }
+  .stat-item { flex: 0 1 calc(33% - 0.5rem); min-width: 90px; }
+  .stat-num { font-size: clamp(1.4rem, 5vw, 2rem); }
+  .stat-label { font-size: 0.58rem; }
+
+  /* ── Hero ── */
   .hero-statusbar { gap: 0.6rem; flex-wrap: wrap; }
   .status-sep { display: none; }
+  .hero-ctas { flex-direction: column; align-items: flex-start; }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-ghost { width: 100%; justify-content: center; }
+
+  /* ── Pipeline ── */
+  .pipe-node { padding: 1rem; }
+
+  /* ── Comparison table ── */
+  .comp-table { font-size: 0.82rem; }
+  .comp-cell { padding: 0.75rem 0.875rem; }
+
+  /* ── Sections spacing ── */
+  .section-sub { font-size: 0.95rem; }
+}
+
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

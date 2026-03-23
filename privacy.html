@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Intentra</title>
+  <link rel="canonical" href="https://www.intentrasecurity.com/privacy" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0a0f;
+      color: #c9cdd4;
+      line-height: 1.75;
+      padding: 0 1rem;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #6c63ff, #4fc3f7);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f0f0f5;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f0f0f5;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f0f0f5;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #1e1e2e;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #9ca3af;
+    }
+
+    ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      color: #9ca3af;
+    }
+
+    ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-box {
+      background: #111827;
+      border: 1px solid #1e2d45;
+      border-left: 3px solid #6c63ff;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      color: #9ca3af;
+      font-size: 0.95rem;
+    }
+
+    .highlight-box strong {
+      color: #f0f0f5;
+    }
+
+    a {
+      color: #6c63ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 3rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #f0f0f5;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a href="https://intentrasecurity.com" class="logo">
+      <div class="logo-mark">I</div>
+      <span class="logo-name">Intentra</span>
+    </a>
+
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Last updated: March 22, 2026</p>
+
+    <div class="highlight-box">
+      <strong>The short version:</strong> Intentra does not collect, transmit, or store any personal data on external servers. All transaction history and settings live exclusively on your device, in your browser's local storage. We cannot see your wallet, your transactions, or your activity.
+    </div>
+
+    <h2>1. Who We Are</h2>
+    <p>
+      Intentra ("we", "our", or "the extension") is a Chrome browser extension that acts as a zero-trust transaction firewall for Web3. It intercepts and evaluates blockchain transactions before they reach your wallet, based on policies you configure. Intentra is developed and maintained by Intentra Security.
+    </p>
+    <p>
+      If you have any questions about this policy, you can reach us at <a href="mailto:privacy@intentrasecurity.com">privacy@intentrasecurity.com</a>.
+    </p>
+
+    <h2>2. Data We Do NOT Collect</h2>
+    <p>Intentra is designed around a privacy-first architecture. We never collect, store, or transmit:</p>
+    <ul>
+      <li>Your wallet address or private keys</li>
+      <li>Your transaction history or signing activity</li>
+      <li>Your personal identity or contact information</li>
+      <li>Browsing history or visited URLs</li>
+      <li>Financial information of any kind</li>
+      <li>Analytics, telemetry, or usage metrics</li>
+    </ul>
+
+    <h2>3. Data Stored Locally on Your Device</h2>
+    <p>
+      Intentra stores the following data exclusively in your browser's local storage (<code>chrome.storage.local</code>). This data never leaves your device and is never transmitted to Intentra or any third party:
+    </p>
+    <ul>
+      <li><strong>Policy configuration</strong> — your chosen security mode (Permissive, Balanced, or Paranoid), protection profile, and threshold values (transfer limits, approval limits, permit duration, daily cap, velocity settings).</li>
+      <li><strong>Transaction history</strong> — a local log of intercepted transactions including outcome, block reasons, and timestamps. This log is used to display your activity history in the extension popup. It is capped in size and stored only on your device.</li>
+      <li><strong>Trusted contracts</strong> — the list of contract addresses you have explicitly approved.</li>
+      <li><strong>Onboarding state</strong> — a flag indicating whether you have completed the first-run setup flow.</li>
+    </ul>
+    <p>You can clear all locally stored data at any time by uninstalling the extension or clearing browser storage.</p>
+
+    <h2>4. Third-Party Services</h2>
+    <p>To deliver its security features, Intentra makes outbound requests to the following external services. These requests contain only technical blockchain data (contract addresses, transaction hashes, token addresses) and never include personal information or wallet credentials.</p>
+
+    <ul>
+      <li>
+        <strong>Intentra Proxy (Cloudflare Workers)</strong> — used to query smart contract verification status (e.g., whether a contract is verified on Etherscan). Requests contain only contract addresses and chain IDs. No wallet data or transaction content is included.
+      </li>
+      <li>
+        <strong>DeFiLlama API (<a href="https://defillama.com" target="_blank" rel="noopener">defillama.com</a>)</strong> — used to fetch current USD prices for ERC-20 tokens involved in approval transactions. Requests contain only token contract addresses. DeFiLlama's privacy policy applies to their service.
+      </li>
+      <li>
+        <strong>Ethereum RPC Endpoints</strong> — used to perform on-chain lookups such as proxy implementation detection, EIP-7702 delegation checks, and event log queries. Requests contain only standard Ethereum JSON-RPC calls (contract addresses, block numbers, storage slots). The specific RPC provider is determined by your network configuration.
+      </li>
+      <li>
+        <strong>Intentra Contract Registry (GitHub)</strong> — used to fetch a periodically updated list of known contract overrides and trusted addresses. This is a public, read-only request that contains no user data.
+      </li>
+    </ul>
+
+    <h2>5. Permissions Explained</h2>
+    <p>Intentra requests the following Chrome permissions, each with a specific, limited purpose:</p>
+    <ul>
+      <li><strong>activeTab / scripting</strong> — required to inject the transaction interceptor into Web3 dApp pages so Intentra can evaluate transactions before they reach your wallet.</li>
+      <li><strong>storage</strong> — required to save your policy settings and local transaction history on your device.</li>
+      <li><strong>Host permissions (https://)</strong> — required to make outbound API requests to DeFiLlama, RPC endpoints, and the Intentra proxy for contract lookups.</li>
+    </ul>
+    <p>Intentra does not use any permission to read your browsing history, access other browser tabs, or collect data unrelated to transaction interception.</p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>
+      Intentra is not directed at children under the age of 13. We do not knowingly collect any information from children. If you believe a child has provided information to this extension, please contact us and we will take appropriate steps.
+    </p>
+
+    <h2>7. Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Continued use of the extension after changes constitutes acceptance of the updated policy.
+    </p>
+
+    <h2>8. Contact</h2>
+    <p>
+      For any questions, concerns, or requests related to this Privacy Policy, contact us at:<br />
+      <a href="mailto:privacy@intentrasecurity.com">privacy@intentrasecurity.com</a>
+    </p>
+
+    <a href="https://intentrasecurity.com" class="back-link">← Back to Intentra</a>
+
+  </div>
+</body>
+</html>

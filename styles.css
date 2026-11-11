@@ -1108,6 +1108,7 @@ code {
 }
 
 .srv-yes     { color: var(--allow); font-family: var(--font-mono); font-size: 0.72rem; }
+.srv-supported { color: var(--cyan); font-family: var(--font-mono); font-size: 0.72rem; }
 .srv-neutral { color: var(--review); font-family: var(--font-mono); font-size: 0.72rem; }
 .srv-no      { color: var(--deny); font-family: var(--font-mono); font-size: 0.72rem; }
 
